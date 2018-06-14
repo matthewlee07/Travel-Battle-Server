@@ -3,6 +3,11 @@ const { router } = require('./search/searchRouter');
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+require('dotenv').config();
+const passport = require('passport');
+const { router: usersRouter } = require('./users');
+const { router: authRouter, localStrategy, jwtStrategy } = require('./auth');
+
 // Mongoose internally uses a promise-like object,
 // but its better to make Mongoose use built in es6 promises
 mongoose.Promise = global.Promise;
@@ -16,6 +21,14 @@ app.use(cors());
 app.use(express.json());
 app.use('/search', router);
 // catch-all endpoint if client makes request to non-existent endpoint
+
+passport.use(localStrategy);
+passport.use(jwtStrategy);
+
+app.use('/api/users/', usersRouter);
+app.use('/api/auth/', authRouter);
+const jwtAuth = passport.authenticate('jwt', { session: false });
+
 app.use('*', function (req, res) {
     res.status(404).json({ message: 'Not Found' });
 });
