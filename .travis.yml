@@ -1,0 +1,11 @@
+language: node_js
+node_js: node
+services:
+- mongodb
+deploy:
+  provider: heroku
+  api_key:
+    secure: OD4bQEXFRsXU4FMjauHrXpf/zCDimaWBAaytm4GdG6KNaO0bZKa41Yi1uYJtqMqVw4OU19kNL1sikrcvnkdsWyUMMU/6hiDBtbjidksh5UFs4lbEhwP7E9pAW+67Ylp/P0b/AGSy0G0xnR2na+UyloLN5v1VLAqkcfwi2IcVVN6CSpUZRXb3mdxDVrji+uG43qLioa4+lzAsRN71FdqW5cOx3d+0XEiVGpdWdp8FdGJTm9gWWyPyad1uaShVg8Xa1JcGy08SmbyyE+kBnfOA2jtQVdt+7FsfqUO9IOfQaSw1ZkrZUrae+aWfatpncDDwIBQcVd46nKpy9Uqgs6AA/tkC/nkrIwxPo7vVM/FkKwViXhrtaSI0T2Pj8fxVdrZgHxu1rI1aYaHINwybJKIoJ7T+KISE1Z1C3Xp3DJCyJR2ozeKNmXCkeXhfUCtJIglHz126M21UXFvlGukY+2W8Vcbj/0sa7VSX2ICgo1kblzIROnnMXgLRTobsR3tRi2xhFAu4NHLavGQLkRawNvq5gbFe+jynrhZpuIU+hDDMGJARhrtB0MLxDR1kUy67j/u1YNfLv+yVvViy9NfT/NSshw5QLAYMhZGHN0863X1p0p2fvmpbS160JJFmpWmHdRX1QOO1Xsf00O+9CG7rjg6gKwD9rhn1Julw1hOMQb7iPCg=
+  app: travel-battle
+  on:
+    repo: matthewlee07/Travel-Battle-Server
